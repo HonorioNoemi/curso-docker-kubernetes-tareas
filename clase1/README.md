@@ -14,4 +14,4 @@
 - docker rm mi-apache
 
 ### 4. Evidencias
-Capturas en ./screenshots/
+Capturas en ./capturas/
