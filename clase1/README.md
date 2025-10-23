@@ -10,10 +10,8 @@
 - Acceso por navegador: 'http://localhost:8081' para la visulaizacion de la pagina por defecto de httpd.
 
 ### 3. Limpieza
-
-
-### 3. Limpieza
-
+- docker stop mi-apache
+- docker rm mi-apache
 
 ### 4. Evidencias
 Capturas en ./screenshots/
