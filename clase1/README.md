@@ -1,5 +1,3 @@
-
-<<<<<<< HEAD
 ## Aplicación elegida: Apache HTTP Server
 ## Comandos Empleados
 ### 1. Ejecución del contenedor
@@ -15,5 +13,4 @@
 
 ### 4. Evidencias
 Capturas en ./capturas/
-=======
->>>>>>> a6438ca (Prueba de configuración de usuario)
+
