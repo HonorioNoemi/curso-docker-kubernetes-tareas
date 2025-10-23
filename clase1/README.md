@@ -3,10 +3,14 @@
 ## Aplicación elegida: Apache HTTP Server
 ## Comandos Empleados
 ### 1. Ejecución del contenedor
-####docker run -d --name mi-apache -p 8081:80 httpd
+ - docker run -d --name mi-apache -p 8081:80 httpd
 ### 2. Verificación
-- docker ps
-- docker logs notmi
+- 'docker ps' empleado para desplegar el contenedor 'mi-apache' y las caracteriscas con la que fue empleada (puerto '8081->80/tcp'.
+- 'docker logs mi-apache' usado para la validacion del correcto inicio del contenedor
+- Acceso por navegador: 'http://localhost:8081' para la visulaizacion de la pagina por defecto de httpd.
+
+### 3. Limpieza
+
 
 ### 3. Limpieza
 
