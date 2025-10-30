@@ -2,4 +2,5 @@
 **Curso:** [Docker & Kubernetes - i-Quattro](https://iquattrogroup.com/login/)
 ## 📘 TAREAS CURSO DOCKER KUBERNETES
 
-- [Clase 1](./clase1/README.md)
+- [Tarea - Clase 1](./clase1/README.md)
+- [Tarea - Clase 2](./clase2/README.md)
