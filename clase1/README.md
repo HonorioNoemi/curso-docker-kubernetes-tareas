@@ -3,7 +3,7 @@
 Se trabajo bajo los siguientes parametros "APACHE":
  - Imagen Empleada: **httpd**
  - Puerto: 8081
- - Nombre Contenedor: --mi-apache--
+ - Nombre Contenedor: _mi-apache_
 ## Comandos Empleados
 ### 1. Ejecución del contenedor
  - docker run -d --name mi-apache -p 8081:80 httpd
