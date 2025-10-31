@@ -79,7 +79,7 @@ export DOCKER_BUILDKIT=1
 docker build -t mi-app:1.0 .
 ```
 Captura : 
-![Docker_build](clase2/capturas/docker_build.png)
+![Docker_build](capturas/docker_build.png)
 
 Mensaje de salida:
 ![Docker_build_SALIDA](clase2/capturas/docker_build_salida.png)
@@ -170,6 +170,7 @@ Durante el desarrollo de esta práctica se aprendió a:
  - Publicar imágenes en Docker Hub.
 
 Resultado: Aplicación funcional, liviana y desplegable desde cualquier entorno con Docker.
+
 
 
 
