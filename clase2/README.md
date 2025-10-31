@@ -78,54 +78,55 @@ CMD ["node", "src/index.js"]
 export DOCKER_BUILDKIT=1
 docker build -t mi-app:1.0 .
 ```
-Salida :
-```
-Step 27/27 : CMD ["node", "src/index.js"]
- ---> Running in 991508932e52
- ---> Removed intermediate container 991508932e52
- ---> 6e0152514542
-Successfully built 6e0152514542
-Successfully tagged mi-app:1.0
-Tamaño final: 
-```
+Captura : 
+![Docker_build](clase2/capturas/docker_build.png)
+Mensaje de salida:
+![Docker_build](clase2/capturas/docker_build_salida.png)
+Tamaño final: 132 MB
 | Commandp | Descripción |
 | --- | --- |
 | `docker build -t mi-app:1.0 . `| Construir la imagen |
 
-**Salida :**
+**Captura :**
+![Docker_build](clase2/capturas/docker_build.png)
 
 | Commandp | Descripción |
 | --- | --- |
 | `docker images` | Verificar imágenes locales |
 
-**Salida :**
+**Captura :**
+![Docker_build](clase2/capturas/docker_images.png)
 
 | Commandp | Descripción |
 | --- | --- |
 | `docker run -d -p 3000:3000 --name mi-app mi-app:1.0`| Ejecutar el contenedor |
 
-**Salida :**
+**Captura :**
+![Docker_build](clase2/capturas/docker_run.png)
 
 | Commandp | Descripción |
 | --- | --- |
 | `docker ps` | Verificar ejecución |
 
-**Salida :**
+**Captura :**
+![Docker_build](clase2/capturas/docker_ps.png)
 
 ##4. Validaciones
 **Endpoints 1**
 ```
 curl http://localhost:3000/
 ```
+![Docker_build](clase2/capturas/validacion1.png)
 **Endpoints 2**
 ```
 curl http://localhost:3000/health
 ```
+![Docker_build](clase2/capturas/validacion2.png)
 **Endpoints 3**
 ```
 curl -X POST http://localhost:3000/echo -H 'Content-Type: application/json' -d '{"hola":"mundo"}'
 ```
-
+![Docker_build](clase2/capturas/validacion3.png)
 **Logs**
 
 
@@ -133,12 +134,16 @@ curl -X POST http://localhost:3000/echo -H 'Content-Type: application/json' -d '
 Comandos empleados:
 ```
 docker login
+```
+![Docker_build](clase2/capturas/login.png)
+```
 docker tag mi-app:1.0 arinoemi/mi-app:1.0
 docker push arinoemi/mi-app:1.0
 ```
+![Docker_build](clase2/capturas/docker_push.png)
 
 URL: [https://hub.docker.com/r/tuusuario/mi-app](https://hub.docker.com/r/arinoemi/mi-app)
-
+![Docker_build](clase2/capturas/docker_hub.png)
 
 ## 6. Optimizaciones aplicadas
 | Mejora | Descripción |
@@ -150,9 +155,12 @@ URL: [https://hub.docker.com/r/tuusuario/mi-app](https://hub.docker.com/r/arinoe
 | EXPOSE documentado | Puerto 3000 |
 
 ###Comparación:
-multi-stage: 70MB
-single-stage: 150MB
-
+multi-stage: 132MB
+single-stage: 132MB
+Se probo la mejora aplicando 
+![Docker_build](clase2/capturas/docker_simple_cab.png)
+Pero no se observo cambios con respecto al tamaño (captura de comparación):
+![Docker_build](clase2/capturas/docker_simple_fin.png)
 ## 7. Conclusiones
 Durante el desarrollo de esta práctica se aprendió a:
  - Crear una aplicación Node.js básica y contenerizarla.
@@ -161,6 +169,7 @@ Durante el desarrollo de esta práctica se aprendió a:
  - Publicar imágenes en Docker Hub.
 
 Resultado: Aplicación funcional, liviana y desplegable desde cualquier entorno con Docker.
+
 
 
 
