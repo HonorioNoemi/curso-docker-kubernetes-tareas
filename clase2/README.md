@@ -11,7 +11,7 @@
 - `POST /echo` — Devuelve el body enviado.
 
 ## 2. Dockerfile (multi-stage)
-Archivo adjunto (ver archivo `Dockerfile` en la raíz)
+Archivo adjunto [Ver Dockerfile](Dockerfile)
 ### Etapa 1 - Construcción (build)
 Instala dependencias de producción (npm ci --only=production) y prepara artefactos
 ```
@@ -136,9 +136,6 @@ curl -X POST http://localhost:3000/echo -H 'Content-Type: application/json' -d '
 ```
 ![validacion prueba2](capturas/validacion3.png)
 
-**Logs**
-
-
 ## 5. Publicación en Docker Hub
 Comandos empleados:
 ```
@@ -184,6 +181,7 @@ Durante el desarrollo de esta práctica se aprendió a:
  - Aplicar multi-stage builds para optimizar tamaño.
  - Usar .dockerignore y buenas prácticas en Dockerfiles.
  - Publicar imágenes en Docker Hub.
+
 
 
 
