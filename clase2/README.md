@@ -11,7 +11,7 @@
 - `POST /echo` — Devuelve el body enviado.
 
 ## 2. Dockerfile (multi-stage)
-Archivo adjunto [Ver Dockerfile](Dockerfile)
+Archivo adjunto [Dockerfile](Dockerfile)
 ### Etapa 1 - Construcción (build)
 Instala dependencias de producción (npm ci --only=production) y prepara artefactos
 ```
@@ -165,9 +165,10 @@ URL: [https://hub.docker.com/r/tuusuario/mi-app](https://hub.docker.com/r/arinoe
 | EXPOSE documentado | Puerto 3000 |
 
 ###Comparación:
-multi-stage: 132MB
-single-stage: 132MB
-Se probo la mejora aplicando archivo Dockerfile.simplified
+- multi-stage: 132MB
+- single-stage: 132MB
+  
+Se probo la mejora aplicando archivo Dockerfile.simplified [Dockerfile.simplified](Dockerfile.simplified)
 
 ![Docker_simple_cabecera](capturas/docker_simple_cab.png)
 
@@ -181,6 +182,7 @@ Durante el desarrollo de esta práctica se aprendió a:
  - Aplicar multi-stage builds para optimizar tamaño.
  - Usar .dockerignore y buenas prácticas en Dockerfiles.
  - Publicar imágenes en Docker Hub.
+
 
 
 
