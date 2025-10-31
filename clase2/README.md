@@ -1,4 +1,4 @@
-# Clase 2 - Dockerización de Mi Aplicación
+# Clase 2 - Dockerfiles y construccion de imagenes
 
 ## 1. Descripción de la aplicación
 **Lenguaje:** Node.js  
@@ -184,6 +184,7 @@ Durante el desarrollo de esta práctica se aprendió a:
  - Aplicar multi-stage builds para optimizar tamaño.
  - Usar .dockerignore y buenas prácticas en Dockerfiles.
  - Publicar imágenes en Docker Hub.
+
 
 
 
