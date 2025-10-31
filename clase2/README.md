@@ -69,9 +69,9 @@ CMD ["node", "src/index.js"]
 ```
 ### Instrucciones principales
 
-`EXPOSE 3000` — puerto documentado.
-`USER appuser` — usuario non-root.
-`HEALTHCHECK` — comprueba /health.
+- `EXPOSE 3000` — puerto documentado.
+- `USER appuser` — usuario non-root.
+- `HEALTHCHECK` — comprueba /health.
 
 ## 3. Proceso de build
 ```
@@ -161,6 +161,7 @@ Durante el desarrollo de esta práctica se aprendió a:
  - Publicar imágenes en Docker Hub.
 
 Resultado: Aplicación funcional, liviana y desplegable desde cualquier entorno con Docker.
+
 
 
 
