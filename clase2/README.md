@@ -12,13 +12,9 @@
 
 ## 2. Dockerfile (multi-stage)
 Archivo adjunto (ver archivo `Dockerfile` en la raíz)
-
+### Etapa 1 - Construcción (build)
+Instala dependencias de producción (npm ci --only=production) y prepara artefactos
 ```
-# syntax=docker/dockerfile:1.4
-
-############################
-# Stage 1 - build
-############################
 FROM node:18-alpine AS build
 
 LABEL maintainer="Ariana Choque <choqueariana2912@gmail.com>"
@@ -36,10 +32,10 @@ RUN npm ci --only=production
 COPY app/src ./src
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-
-############################
-# Stage 2 - runtime
-############################
+```
+### Etapa 2 - Producción (runtime)
+Copia sólo node_modules y src desde build, ejecuta app con usuario non-root.
+```
 FROM node:18-alpine AS runtime
 
 LABEL org.opencontainers.image.licenses="MIT"
@@ -71,3 +67,96 @@ LABEL org.opencontainers.image.title="mi-app"
 
 CMD ["node", "src/index.js"]
 ```
+### Instrucciones principales
+
+`EXPOSE 3000` — puerto documentado.
+`USER appuser` — usuario non-root.
+`HEALTHCHECK` — comprueba /health.
+
+## 3. Proceso de build
+```
+export DOCKER_BUILDKIT=1
+docker build -t mi-app:1.0 .
+```
+Salida :
+```
+Step 27/27 : CMD ["node", "src/index.js"]
+ ---> Running in 991508932e52
+ ---> Removed intermediate container 991508932e52
+ ---> 6e0152514542
+Successfully built 6e0152514542
+Successfully tagged mi-app:1.0
+Tamaño final: 
+```
+| Commandp | Descripción |
+| --- | --- |
+| `docker build -t mi-app:1.0 . `| Construir la imagen |
+**Salida :**
+
+| Commandp | Descripción |
+| --- | --- |
+| `docker images` | Verificar imágenes locales |
+**Salida :**
+
+| Commandp | Descripción |
+| --- | --- |
+| `docker run -d -p 3000:3000 --name mi-app mi-app:1.0`| Ejecutar el contenedor |
+**Salida :**
+
+| Commandp | Descripción |
+| --- | --- |
+| `docker ps` | Verificar ejecución |
+**Salida :**
+
+##4. Validaciones
+**Endpoints 1**
+```
+curl http://localhost:3000/
+```
+**Endpoints 2**
+```
+curl http://localhost:3000/health
+```
+**Endpoints 3**
+```
+curl -X POST http://localhost:3000/echo -H 'Content-Type: application/json' -d '{"hola":"mundo"}'
+```
+
+**Logs**
+
+
+## 5. Publicación en Docker Hub
+Comandos empleados:
+```
+docker login
+docker tag mi-app:1.0 arinoemi/mi-app:1.0
+docker push arinoemi/mi-app:1.0
+```
+
+URL: [https://hub.docker.com/r/tuusuario/mi-app](https://hub.docker.com/r/arinoemi/mi-app)
+
+
+6. Optimizaciones aplicadas
+| Mejora | Descripción |
+| --- | --- |
+| Multi-Stage Build | Reduce el tamaño final de la imagen al separar la instalación y el runtime. |
+| Imagen base alpine | Imagen ligera, optimiza tamaño y seguridad |
+| .dockerignore | Evita subir archivos innecesarios |
+| Usuario non-root | Mejora seguridad |
+| EXPOSE documentado | Puerto 3000 |
+
+Comparación (ejemplo):
+
+# multi-stage: 70MB
+# single-stage: 150MB
+
+7. Conclusiones
+Durante el desarrollo de esta práctica se aprendió a:
+ - Crear una aplicación Node.js básica y contenerizarla.
+ - Aplicar multi-stage builds para optimizar tamaño.
+ - Usar .dockerignore y buenas prácticas en Dockerfiles.
+ - Publicar imágenes en Docker Hub.
+
+Resultado: Aplicación funcional, liviana y desplegable desde cualquier entorno con Docker.
+
+
