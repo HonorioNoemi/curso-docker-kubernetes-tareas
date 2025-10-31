@@ -80,6 +80,7 @@ docker build -t mi-app:1.0 .
 ```
 Captura : 
 ![Docker_build](clase2/capturas/docker_build.png)
+
 Mensaje de salida:
 ![Docker_build](clase2/capturas/docker_build_salida.png)
 Tamaño final: 132 MB
@@ -169,6 +170,7 @@ Durante el desarrollo de esta práctica se aprendió a:
  - Publicar imágenes en Docker Hub.
 
 Resultado: Aplicación funcional, liviana y desplegable desde cualquier entorno con Docker.
+
 
 
 
