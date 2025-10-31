@@ -1,4 +1,9 @@
 ## Aplicación elegida: Apache HTTP Server
+##Objetivo 
+Se trabajo bajo los siguientes parametros "APACHE":
+ - Imagen Empleada: **httpd**
+ - Puerto: 8081
+ - Nombre Contenedor: --mi-apache--
 ## Comandos Empleados
 ### 1. Ejecución del contenedor
  - docker run -d --name mi-apache -p 8081:80 httpd
