@@ -78,19 +78,18 @@ CMD ["node", "src/index.js"]
 export DOCKER_BUILDKIT=1
 docker build -t mi-app:1.0 .
 ```
-
-Captura : 
-
-![Docker_build](capturas/docker_build.png)
-
 Mensaje de salida:
-![Docker_build_SALIDA](capturas/docker_build_salida.png)
+
+![Docker_build_SALIDA](capturas/salida_docker_build1.png)
+
 Tamaño final: 132 MB
+
 | Commandp | Descripción |
 | --- | --- |
 | `docker build -t mi-app:1.0 . `| Construir la imagen |
 
 **Captura :**
+
 ![Docker_build_1](capturas/docker_build.png)
 
 | Commandp | Descripción |
@@ -98,6 +97,7 @@ Tamaño final: 132 MB
 | `docker images` | Verificar imágenes locales |
 
 **Captura :**
+
 ![Docker_images](capturas/docker_images.png)
 
 | Commandp | Descripción |
@@ -105,6 +105,7 @@ Tamaño final: 132 MB
 | `docker run -d -p 3000:3000 --name mi-app mi-app:1.0`| Ejecutar el contenedor |
 
 **Captura :**
+
 ![Docker_run](capturas/docker_run.png)
 
 | Commandp | Descripción |
@@ -112,6 +113,7 @@ Tamaño final: 132 MB
 | `docker ps` | Verificar ejecución |
 
 **Captura :**
+
 ![Docker_ps](capturas/docker_ps.png)
 
 ##4. Validaciones
@@ -120,16 +122,20 @@ Tamaño final: 132 MB
 curl http://localhost:3000/
 ```
 ![validacion_prueba0](capturas/validacion1.png)
+
 **Endpoints 2**
 ```
 curl http://localhost:3000/health
 ```
+
 ![validacion_prueba1](capturas/validacion2.png)
+
 **Endpoints 3**
 ```
 curl -X POST http://localhost:3000/echo -H 'Content-Type: application/json' -d '{"hola":"mundo"}'
 ```
 ![validacion prueba2](capturas/validacion3.png)
+
 **Logs**
 
 
@@ -138,14 +144,18 @@ Comandos empleados:
 ```
 docker login
 ```
+
 ![Docker_login](capturas/login.png)
+
 ```
 docker tag mi-app:1.0 arinoemi/mi-app:1.0
 docker push arinoemi/mi-app:1.0
 ```
+
 ![Docker_push](capturas/docker_push.png)
 
 URL: [https://hub.docker.com/r/tuusuario/mi-app](https://hub.docker.com/r/arinoemi/mi-app)
+
 ![Docker_HUB](capturas/docker_hub.png)
 
 ## 6. Optimizaciones aplicadas
@@ -160,10 +170,14 @@ URL: [https://hub.docker.com/r/tuusuario/mi-app](https://hub.docker.com/r/arinoe
 ###Comparación:
 multi-stage: 132MB
 single-stage: 132MB
-Se probo la mejora aplicando 
+Se probo la mejora aplicando archivo Dockerfile.simplified
+
 ![Docker_simple_cabecera](capturas/docker_simple_cab.png)
-Pero no se observo cambios con respecto al tamaño (captura de comparación):
+
+Sin observar cambios con respecto al tamaño (captura de comparación):
+
 ![Docker_simple_final](capturas/docker_simple_fin.png)
+
 ## 7. Conclusiones
 Durante el desarrollo de esta práctica se aprendió a:
  - Crear una aplicación Node.js básica y contenerizarla.
@@ -171,7 +185,7 @@ Durante el desarrollo de esta práctica se aprendió a:
  - Usar .dockerignore y buenas prácticas en Dockerfiles.
  - Publicar imágenes en Docker Hub.
 
-Resultado: Aplicación funcional, liviana y desplegable desde cualquier entorno con Docker.
+
 
 
 
