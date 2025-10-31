@@ -9,7 +9,7 @@ Se trabajo bajo los siguientes parametros "APACHE":
 ```
 docker run -d --name mi-apache -p 8081:80 httpd
 ```
-![Ejecución del contenedor](clase1/capturas/creacion_contenedor.png)
+![Ejecución del contenedor](/clase1/capturas/creacion_contenedor.png)
 
 ### 2. Verificación
 - Para la visualización del contenedor 'mi-apache' y las caracteriscas con la que fue empleada (puerto '8081').
