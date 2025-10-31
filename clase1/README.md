@@ -16,16 +16,19 @@ docker run -d --name mi-apache -p 8081:80 httpd
 ```
 docker ps
 ```
+![Ejecución del contenedor](/clase1/capturas/verificacion.png)
 - `docker logs mi-apache` usado para la validacion del correcto inicio del contenedor
+![Ejecución del contenedor](/clase1/capturas/docker_logs.png)
 - Acceso por navegador: `http://localhost:8081`  para la visulaizacion de la pagina por defecto de httpd.
-
+![Ejecución del contenedor](/clase1/capturas/acceso_portal.png)
 ### 3. Limpieza
 Se procedió con la limpieza correspondiente desde la detención del contenedor y eliminado; validando la correcta ejecución de estos con `docker ps`
 ```
 docker stop mi-apache
 docker rm mi-apache
 ```
-
-### 4. Evidencias
-Capturas en ./capturas/
+![Ejecución del contenedor](/clase1/capturas/limpieza.png)
+### 4. Conclusiones y comentarios
+- Se cumplio con el objetivo de levantar un contenedor bajo una imagen, validando su funcionamiento.
+- Se presento el problema de privilegios de ejecución por lo cual se adiciono el `sudo` para la ejecución de los mismos.
 
