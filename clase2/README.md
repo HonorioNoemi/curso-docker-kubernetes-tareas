@@ -145,7 +145,7 @@ Comandos empleados:
 docker login
 ```
 
-![Docker_login](capturas/login.png)
+![Docker_login](capturas/docker_login.png)
 
 ```
 docker tag mi-app:1.0 arinoemi/mi-app:1.0
@@ -184,6 +184,7 @@ Durante el desarrollo de esta práctica se aprendió a:
  - Aplicar multi-stage builds para optimizar tamaño.
  - Usar .dockerignore y buenas prácticas en Dockerfiles.
  - Publicar imágenes en Docker Hub.
+
 
 
 
