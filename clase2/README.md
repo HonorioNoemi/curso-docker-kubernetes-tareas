@@ -91,21 +91,25 @@ Tamaño final:
 | Commandp | Descripción |
 | --- | --- |
 | `docker build -t mi-app:1.0 . `| Construir la imagen |
+
 **Salida :**
 
 | Commandp | Descripción |
 | --- | --- |
 | `docker images` | Verificar imágenes locales |
+
 **Salida :**
 
 | Commandp | Descripción |
 | --- | --- |
 | `docker run -d -p 3000:3000 --name mi-app mi-app:1.0`| Ejecutar el contenedor |
+
 **Salida :**
 
 | Commandp | Descripción |
 | --- | --- |
 | `docker ps` | Verificar ejecución |
+
 **Salida :**
 
 ##4. Validaciones
@@ -136,7 +140,7 @@ docker push arinoemi/mi-app:1.0
 URL: [https://hub.docker.com/r/tuusuario/mi-app](https://hub.docker.com/r/arinoemi/mi-app)
 
 
-6. Optimizaciones aplicadas
+## 6. Optimizaciones aplicadas
 | Mejora | Descripción |
 | --- | --- |
 | Multi-Stage Build | Reduce el tamaño final de la imagen al separar la instalación y el runtime. |
@@ -145,12 +149,11 @@ URL: [https://hub.docker.com/r/tuusuario/mi-app](https://hub.docker.com/r/arinoe
 | Usuario non-root | Mejora seguridad |
 | EXPOSE documentado | Puerto 3000 |
 
-Comparación (ejemplo):
+###Comparación:
+multi-stage: 70MB
+single-stage: 150MB
 
-# multi-stage: 70MB
-# single-stage: 150MB
-
-7. Conclusiones
+## 7. Conclusiones
 Durante el desarrollo de esta práctica se aprendió a:
  - Crear una aplicación Node.js básica y contenerizarla.
  - Aplicar multi-stage builds para optimizar tamaño.
@@ -158,5 +161,6 @@ Durante el desarrollo de esta práctica se aprendió a:
  - Publicar imágenes en Docker Hub.
 
 Resultado: Aplicación funcional, liviana y desplegable desde cualquier entorno con Docker.
+
 
 
